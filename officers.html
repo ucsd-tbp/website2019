@@ -86,16 +86,27 @@
 								var officerlistDiv = document.getElementById("officerlist")
 								var len = officerlist.length;
 								for (var i = 0; i < len; i++) {
-									officer = officerlist[i];
+									var officer = officerlist[i];
+									var name;
+									if (officer.email.length > 0) {
+										name = '<a href="mailto:' + officer.email + '">' + officer.name + '</a>';
+									} else {
+										name = officer.name;
+									}
+									var imagePath;
+									if (officer.image.length > 0) {
+										imagePath = officer.image;
+									} else {
+										imagePath = "generic_officer.png";
+									}
 									officerlistDiv.innerHTML += 
 										'<div class="officercontainer">' +
 										'  <div class="officerinner">' +
-										'    <image class="profilepic" src="/images/' + officer.image + '" />' +
+										'    <image class="profilepic" src="/images/' + imagePath + '" />' +
 										'	 </div>' +
 										'  <div>' +
-										'    <div class="officername"><a href="mailto:' + officer.email + '">' + officer.name + '</a></div>' +
+										'    <div class="officername">' + name + '</div>' +
 										'    <div class="officerrole">' + officer.role + '</div>' +
-										//'    <div class="officeremail">Email: <a href="mailto:' + officer.email + '">' + officer.email + '</a></div>' +
 										'  </div>' +
 										'</div>';
 								}
