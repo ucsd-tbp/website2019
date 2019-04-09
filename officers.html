@@ -11,6 +11,24 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<style>
+			.profilepic {
+				background-color: beige;
+				border-radius: 50%;
+				width: 300px;
+				height: 300px;
+			}
+			.officercontainer {
+				float: left;
+				text-align: center;
+				padding: 40px;
+				/*height: 400px;*/
+				width: 400px;
+			}
+			.officerinner {
+				margin: auto;
+			}
+		</style>
 	</head>
 	<body class="is-preload">
 
@@ -34,8 +52,55 @@
 						<div class="inner">
 							<h1 class="major">Our Officer Team</h1>
 							<span class="image fit"><img src="images/officerteamheadpic.JPG" alt="" /></span>
-							<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fergiat. Pellentesque in mi eu massa lacinia malesuada et a elit. Donec urna ex, lacinia in purus ac, pretium pulvinar mauris. Curabitur sapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit tristique.</p>
-							<p>Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fersapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit tristique lorem ipsum dolor.</p>
+							<div id="officerlist">
+							</div>
+							<script>
+								var officerlist = [
+									{name: "Ansel Blume", image: "officers18/ansel.jpg", role: "President", email: "ablume@ucsd.edu", blurb: ""},
+									{name: "Heero Chung", image: "officers18/heero.jpg", role: "VP External Co-Chair", email: "hrc001@ucsd.edu", blurb: ""},
+									{name: "Danielle Naiman", image: "officers18/danielle.jpg", role: "VP External Co-Chair", email: "dnaiman@ucsd.edu", blurb: ""},
+									{name: "Edward Chen", image: "officers18/edward.jpg", role: "VP Internal", email: "ejc042@ucsd.edu", blurb: ""},
+									{name: "Christina Ngo", image: "officers18/christina.jpg", role: "VP Finance", email: "cmngo@ucsd.edu", blurb: ""},
+									{name: "Arielle Yoo", image: "officers18/arielle.jpg", role: "Secretary", email: "asy021@ucsd.edu", blurb: ""},
+									{name: "Gabe Shatkin", image: "officers18/gabe.jpg", role: "Social Chair", email: "gshatkin@ucsd.edu", blurb: ""},
+									{name: "Oliver Noss", image: "officers18/oliver.jpg", role: "House Chair", email: "onoss@ucsd.edu", blurb: ""},
+									{name: "Leon Cheung", image: "officers18/leon.jpg", role: "Membership Chair", email: "ljcheung@ucsd.edu", blurb: ""},
+									{name: "Daniel Cheah", image: "officers18/daniel.jpg", role: "Campus Engagement Chair", email: "dscheah@ucsd.edu", blurb: ""},
+									{name: "Aarthi Venkat", image: "officers18/aarthi.jpg", role: "Outreach Chair", email: "avenkat@ucsd.edu", blurb: ""},
+									{name: "Adam May", image: "officers18/adam.jpg", role: "Community Service Chair", email: "a5may@ucsd.edu", blurb: ""},
+									{name: "A. Sterling Christensen", image: "officers18/sterling.jpg", role: "Technical Chair", email: "aschrist@ucsd.edu", blurb: ""},
+									{name: "Kate Wong", image: "officers18/kate.jpg", role: "Publicity/Historian", email: "kww006@ucsd.edu", blurb: ""},
+									{name: "Frank He", image: "officers18/frank.jpg", role: "BENG Representative", email: "fjhe@ucsd.edu", blurb: ""},
+									{name: "Yash Pande", image: "officers18/yash.jpg", role: "CSE Representative", email: "ypande@ucsd.edu", blurb: ""},
+									{name: "Richard Li", image: "officers18/richard.jpg", role: "MAE Representative", email: "mil209@ucsd.edu", blurb: ""},
+									{name: "Kristan Hilby", image: "officers18/kristan.jpg", role: "NANO Representative", email: "kmhilby@ucsd.edu", blurb: ""},
+									{name: "Jennifer MacAulay", image: "officers18/jenna.jpg", role: "SE Representative", email: "jmmacaul@ucsd.edu", blurb: ""},
+									{name: "Reed Rouland", image: "officers18/reed.jpg", role: "ECE Representative", email: "rrouland@ucsd.edu", blurb: ""},
+									{name: "Christopher Lau", image: "", role: "Advisor", email: "", blurb: ""},
+									{name: "Lori Jue", image: "", role: "Advisor", email: "", blurb: ""},
+									{name: "Justin Ow", image: "", role: "Advisor", email: "", blurb: ""},
+									{name: "Justin Opatkiewicz", image: "", role: "Faculty Advisor", email: "", blurb: ""},
+									{name: "Dr. Geoffrey M. Voelker", image: "", role: "Chief Advisor", email: "", blurb: ""},
+								];
+
+								var officerlistDiv = document.getElementById("officerlist")
+								var len = officerlist.length;
+								for (var i = 0; i < len; i++) {
+									officer = officerlist[i];
+									officerlistDiv.innerHTML += 
+										'<div class="officercontainer">' +
+										'  <div class="officerinner">' +
+										'    <image class="profilepic" src="/image/officers18/' + officer.image + '.jpg" />' +
+										'	 </div>' +
+										'  <div>' +
+										'    <div class="officername"><a href="mailto:' + officer.email + '">' + officer.name + '</a></div>' +
+										'    <div class="officerrole">' + officer.role + '</div>' +
+										//'    <div class="officeremail">Email: <a href="mailto:' + officer.email + '">' + officer.email + '</a></div>' +
+										'  </div>' +
+										'</div>';
+								}
+							</script>
+							<div style="clear: both; height: 100px;"></div>
 						</div>
 					</section>
 
